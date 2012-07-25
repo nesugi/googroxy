@@ -3,13 +3,13 @@ error_reporting(0);
 require 'privatedata.php';
 
 if ($AUTH != @$_SERVER['HTTP_X_SHARED_SECRET']) {
-   header("HTTP/1.1 404 Not Found");
+   header("HTTP/1.2 404 Not Found");
    exit;
 }
 
 $url = @$_GET['q'];
 if (!isset($url)) {
-   header("HTTP/1.1 404 Not Found");
+   header("HTTP/1.2 404 Not Found");
    exit;
 }
 
