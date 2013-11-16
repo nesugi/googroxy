@@ -21,7 +21,8 @@ curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
 curl_setopt($ch, CURLOPT_FOLLOWLOCATION, false);
 
 if (isset($_SERVER['HTTP_USER_AGENT'])) {
-   curl_setopt($ch, CURLOPT_USERAGENT, $_SERVER['HTTP_USER_AGENT']);
+//   curl_setopt($ch, CURLOPT_USERAGENT, $_SERVER['HTTP_USER_AGENT']);
+   curl_setopt($ch, CURLOPT_USERAGENT, preg_replace('\sAppEngine.*$', '', $_SERVER['HTTP_USER_AGENT']));
 }
 if (isset($_SERVER['HTTP_COOKIE'])) {
    curl_setopt( $ch, CURLOPT_COOKIE, $_SERVER['HTTP_COOKIE'] );
